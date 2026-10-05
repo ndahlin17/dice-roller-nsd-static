@@ -1,1 +1,1 @@
-# dice-roller-nsd-static
+Nick Dahlin Web Dice Roller To use this application, first open the link. Then either hit "Roll Dice" or the Enter key to roll five six-sided die.

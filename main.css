@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #e8eef5;
+    text-align: center;
+}
+
+.container {
+    width: 80%;
+    max-width: 700px;
+    margin: 80px auto;
+    padding: 40px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    margin-bottom: 15px;
+}
+
+.instructions {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 35px;
+}
+
+.dice-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.die {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input {
+    width: 55px;
+    height: 55px;
+    font-size: 28px;
+    text-align: right;
+    border: 2px solid #555;
+    border-radius: 8px;
+    background-color: #f5f5f5;
+}
+
+button {
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    background-color: #333;
+    color: white;
+}
+
+button:hover {
+    background-color: #555;
+}
