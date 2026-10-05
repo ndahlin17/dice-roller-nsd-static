@@ -1,13 +1,39 @@
-function rollDice() {
-    let die1 = Math.floor(Math.random() * 6) + 1;
-    let die2 = Math.floor(Math.random() * 6) + 1;
-    let die3 = Math.floor(Math.random() * 6) + 1;
-    let die4 = Math.floor(Math.random() * 6) + 1;
-    let die5 = Math.floor(Math.random() * 6) + 1;
+const serverUrl = 'https://dice-roller-nsd-node-eycwbbf4bnbqd9ay.centralus-01.azurewebsites.net';
 
-    document.getElementById("die1").value = die1;
-    document.getElementById("die2").value = die2;
-    document.getElementById("die3").value = die3;
-    document.getElementById("die4").value = die4;
-    document.getElementById("die5").value = die5;
+async function wakeServer() {
+    try {
+        await fetch(serverUrl + '/api/wake');
+    } catch (error) {
+        console.log('Could not wake server:', error);
+    }
+}
+
+async function rollDice() {
+    // Wake up the Node.js server
+    await wakeServer();
+
+    // Get five random numbers from the server
+    try {
+        let response = await fetch(serverUrl + '/api/roll');
+        let data = await response.json();
+        document.getElementById("die1").value = data.roll;
+
+        response = await fetch(serverUrl + '/api/roll');
+        data = await response.json();
+        document.getElementById("die2").value = data.roll;
+
+        response = await fetch(serverUrl + '/api/roll');
+        data = await response.json();
+        document.getElementById("die3").value = data.roll;
+
+        response = await fetch(serverUrl + '/api/roll');
+        data = await response.json();
+        document.getElementById("die4").value = data.roll;
+
+        response = await fetch(serverUrl + '/api/roll');
+        data = await response.json();
+        document.getElementById("die5").value = data.roll;
+    } catch (error) {
+        console.log('Error getting dice rolls:', error);
+    }
 }
